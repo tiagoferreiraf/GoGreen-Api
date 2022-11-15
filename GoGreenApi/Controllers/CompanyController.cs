@@ -18,9 +18,9 @@ namespace GoGreenApi.Controllers
         [HttpGet("getAll")]
         public async Task<ActionResult<List<CompanyModel>>> GetAllCompanys()
         {
-            List<CompanyModel> company = await _companyRepo.GetAllCompanys();
+            List<CompanyModel> companys = await _companyRepo.GetAllCompanys();
 
-            return Ok();
+            return Ok(companys);
         }
 
 

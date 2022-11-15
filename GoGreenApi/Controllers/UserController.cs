@@ -20,7 +20,7 @@ namespace GoGreenApi.Controllers
         {
             List<UserModel> users = await _userRepo.GetAllUsers();
 
-            return Ok();
+            return Ok(users);
         }
 
 
