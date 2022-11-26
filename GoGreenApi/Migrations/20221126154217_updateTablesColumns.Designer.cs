@@ -4,6 +4,7 @@ using GoGreenApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoGreenApi.Migrations
 {
     [DbContext(typeof(GoGreenDbContext))]
-    partial class GoGreenDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221126154217_updateTablesColumns")]
+    partial class updateTablesColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
