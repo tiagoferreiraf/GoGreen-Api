@@ -26,6 +26,7 @@ namespace GoGreenApi
 
             builder.Services.AddScoped<ICompanyRepository,CompanyRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<ISchedulingRepository, SchedulingRepository>();
 
             var app = builder.Build();
 

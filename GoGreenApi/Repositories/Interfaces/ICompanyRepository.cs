@@ -4,6 +4,7 @@ namespace GoGreenApi.Repositories.Interfaces
 {
     public interface ICompanyRepository
     {
+        Task<CompanyModel> SearchCompanyByEmail(string email);
         Task<List<CompanyModel>> GetAllCompanys();
         Task<CompanyModel> SearchById(int id);
         Task<CompanyModel> AddCompany(CompanyModel company);

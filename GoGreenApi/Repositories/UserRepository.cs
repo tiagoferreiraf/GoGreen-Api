@@ -14,6 +14,8 @@ namespace GoGreenApi.Repositories
             _dbContext = goGreenCompanyContext;
         }
 
+       
+
         public async Task<UserModel> AddUser(UserModel user)
         {
             await _dbContext.Users.AddAsync(user);
@@ -25,6 +27,11 @@ namespace GoGreenApi.Repositories
         public async Task<List<UserModel>> GetAllUsers()
         {
             return await _dbContext.Users.ToListAsync();
+        }
+
+        public async Task<UserModel> SearchUserByEmail(string email)
+        {
+            return await _dbContext.Users.FirstOrDefaultAsync(x => x.Email.ToUpper() == email.ToUpper());
         }
 
         public async Task<UserModel> SearchById(int id)
@@ -63,5 +70,7 @@ namespace GoGreenApi.Repositories
 
             return true;
         }
+
+       
     }
 }

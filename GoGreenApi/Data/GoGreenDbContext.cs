@@ -11,12 +11,14 @@ namespace GoGreenApi.Data
         }
         public DbSet<CompanyModel> Companys { get; set; }
         public DbSet<UserModel> Users { get; set; }
+        public DbSet<SchedulingModel> Schedulings { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CompanyMapping());
             modelBuilder.ApplyConfiguration(new UserMapping());
+            modelBuilder.ApplyConfiguration(new SchedulingMapping());
 
             base.OnModelCreating(modelBuilder);
         }

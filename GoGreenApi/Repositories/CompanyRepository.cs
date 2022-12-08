@@ -27,6 +27,11 @@ namespace GoGreenApi.Repositories
             return await _dbContext.Companys.ToListAsync();
         }
 
+        public async Task<CompanyModel> SearchCompanyByEmail(string email)
+        {
+            return await _dbContext.Companys.FirstOrDefaultAsync(x => x.Email.ToUpper() == email.ToUpper());
+        }
+
         public async Task<CompanyModel> SearchById(int id)
         {
             return await _dbContext.Companys.FirstOrDefaultAsync(x => x.Id == id);
