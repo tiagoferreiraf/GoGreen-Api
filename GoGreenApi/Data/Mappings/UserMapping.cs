@@ -15,6 +15,7 @@ namespace GoGreenApi.Data.Mappings
             builder.Property(x => x.City).IsRequired().HasMaxLength(255);
             builder.Property(x => x.State).IsRequired().HasMaxLength(255);
             builder.Property(x => x.Cep).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.Address).IsRequired().HasMaxLength(255);
         }
     }
 }

@@ -56,6 +56,7 @@ namespace GoGreenApi.Controllers
                         City = user.City,
                         State = user.City,
                         Cep = user.Cep,
+                        Address = user.Address,
                     }
              });
                
