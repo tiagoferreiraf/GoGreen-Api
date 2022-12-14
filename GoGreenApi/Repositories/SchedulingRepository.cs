@@ -38,19 +38,31 @@ namespace GoGreenApi.Repositories
 
         public async Task<SchedulingModel> UpdateScheduling(SchedulingModel schedulings, int id)
         {
-            SchedulingModel SchedulingForId = await SearchById(id);
-
-            if (SchedulingForId == null)
+            try
             {
-                throw new Exception($"Usúario para o ID:{id} não foi encontrado no banco de dados");
+                SchedulingModel SchedulingForId = await SearchById(id);
+
+                if (SchedulingForId == null)
+                {
+                    throw new Exception($"Usúario para o ID:{id} não foi encontrado no banco de dados");
+                }
+
+                SchedulingForId.Product = schedulings.Product;
+                SchedulingForId.StatusScheduling = schedulings.StatusScheduling;
+                SchedulingForId.Category = schedulings.Category;
+                SchedulingForId.DescriptionProduct = schedulings.DescriptionProduct;
+                SchedulingForId.dtCreated = schedulings.dtCreated;
+
+                _dbContext.Schedulings.Update(SchedulingForId);
+                await _dbContext.SaveChangesAsync();
+
+                return SchedulingForId;
             }
+            catch (Exception ex)
+            {
 
-           
-
-            _dbContext.Schedulings.Update(SchedulingForId);
-            await _dbContext.SaveChangesAsync();
-
-            return SchedulingForId;
+                throw;
+            }
         }
 
         public async Task<bool> DeleteScheduling(int id)
