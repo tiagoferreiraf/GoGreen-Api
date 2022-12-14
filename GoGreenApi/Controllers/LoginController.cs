@@ -46,6 +46,7 @@ namespace GoGreenApi.Controllers
                         {
                             userType = "Company",
                             user = new CompanyModel {
+                            Id = company.Id,
                             Name = company.Name,
                             ImageUrl = company.ImageUrl,
                             Email= company.Email,
